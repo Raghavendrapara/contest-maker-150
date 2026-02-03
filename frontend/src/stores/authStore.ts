@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import type { User, TokenPair } from '@/types';
+import type { User } from '@/types';
 import { setStoredTokens, clearStoredTokens, authApi } from '@/services/api';
 
 interface AuthState {

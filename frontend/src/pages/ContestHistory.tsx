@@ -11,7 +11,7 @@ import {
     Loader2,
     FolderOpen
 } from 'lucide-react';
-import { format, formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 import clsx from 'clsx';
 
 export default function ContestHistory() {

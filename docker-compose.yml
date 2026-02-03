@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   # PostgreSQL Database
   postgres:
-    image: postgres:16-alpine
+    image: postgres:18-alpine
     container_name: contest-maker-db
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-contestmaker}
@@ -69,7 +67,7 @@ services:
 
   # Jaeger for distributed tracing
   jaeger:
-    image: jaegertracing/all-in-one:1.54
+    image: jaegertracing/all-in-one:1.64
     container_name: contest-maker-jaeger
     environment:
       COLLECTOR_ZIPKIN_HOST_PORT: :9411
@@ -82,7 +80,7 @@ services:
 
   # Prometheus for metrics
   prometheus:
-    image: prom/prometheus:v2.49.1
+    image: prom/prometheus:v2.58.0
     container_name: contest-maker-prometheus
     volumes:
       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
@@ -97,7 +95,7 @@ services:
 
   # Grafana for dashboards
   grafana:
-    image: grafana/grafana:10.3.1
+    image: grafana/grafana:11.4.0
     container_name: contest-maker-grafana
     environment:
       GF_SECURITY_ADMIN_USER: ${GRAFANA_USER:-admin}

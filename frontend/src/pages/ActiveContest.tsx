@@ -22,7 +22,7 @@ export default function ActiveContest() {
     const queryClient = useQueryClient();
 
     // Fetch active contest or specific contest by ID
-    const { data, isLoading, error } = useQuery<{ contest: Contest | null } | Contest>({
+    const { data, isLoading } = useQuery<{ contest: Contest | null } | Contest>({
         queryKey: id ? ['contest', id] : ['active-contest'],
         queryFn: () => id ? contestApi.getById(id) : contestApi.getActive(),
         refetchInterval: 30000, // Refresh every 30 seconds

@@ -30,7 +30,7 @@ export default function CreateContest() {
             problem_count: problemCount,
             duration_minutes: duration,
         }),
-        onSuccess: (data) => {
+        onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['active-contest'] });
             navigate('/contest/active');
         },

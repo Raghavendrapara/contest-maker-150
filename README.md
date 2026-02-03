@@ -3,9 +3,9 @@
 A modern, containerized application for generating coding contests from the NeetCode 150 problem set.
 
 ![Contest Maker 150](https://img.shields.io/badge/version-1.0.0-blue)
-![Go](https://img.shields.io/badge/Go-1.22+-00ADD8?logo=go)
-![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.4-3178C6?logo=typescript)
+![Go](https://img.shields.io/badge/Go-1.25+-00ADD8?logo=go)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript)
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker)
 
 ## Features

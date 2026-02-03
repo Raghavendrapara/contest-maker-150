@@ -11,7 +11,6 @@ import {
     TrendingUp,
     Zap
 } from 'lucide-react';
-import clsx from 'clsx';
 import type { UserProgress, Contest } from '@/types';
 
 export default function Dashboard() {
@@ -22,7 +21,7 @@ export default function Dashboard() {
         queryFn: userApi.getProgress,
     });
 
-    const { data: activeContestData, isLoading: contestLoading } = useQuery<{ contest: Contest | null }>({
+    const { data: activeContestData } = useQuery<{ contest: Contest | null }>({
         queryKey: ['active-contest'],
         queryFn: contestApi.getActive,
     });

@@ -5,7 +5,7 @@ import (
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/propagation"
-	semconv "go.opentelemetry.io/otel/semconv/v1.24.0"
+	semconv "go.opentelemetry.io/otel/semconv/v1.26.0"
 	"go.opentelemetry.io/otel/trace"
 )
 
@@ -26,10 +26,10 @@ func TracingMiddleware(tracer trace.Tracer) gin.HandlerFunc {
 		ctx, span := tracer.Start(ctx, spanName,
 			trace.WithSpanKind(trace.SpanKindServer),
 			trace.WithAttributes(
-				semconv.HTTPMethod(c.Request.Method),
-				semconv.HTTPURL(c.Request.URL.String()),
-				semconv.HTTPScheme(c.Request.URL.Scheme),
-				semconv.NetHostName(c.Request.Host),
+				semconv.HTTPRequestMethodKey.String(c.Request.Method),
+				semconv.URLFull(c.Request.URL.String()),
+				semconv.URLScheme(c.Request.URL.Scheme),
+				semconv.ServerAddress(c.Request.Host),
 				semconv.UserAgentOriginal(c.Request.UserAgent()),
 				attribute.String("http.client_ip", c.ClientIP()),
 			),
@@ -49,7 +49,7 @@ func TracingMiddleware(tracer trace.Tracer) gin.HandlerFunc {
 
 		// Record response attributes
 		status := c.Writer.Status()
-		span.SetAttributes(semconv.HTTPStatusCode(status))
+		span.SetAttributes(semconv.HTTPResponseStatusCode(status))
 
 		// Mark span as error if status >= 400
 		if status >= 400 {
