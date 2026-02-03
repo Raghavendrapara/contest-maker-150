@@ -1,0 +1,22 @@
+# Dependencies and build
+tmp/
+vendor/
+
+# IDE
+.idea/
+.vscode/
+
+# Binaries
+*.exe
+*.out
+api
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+
+# OS
+.DS_Store

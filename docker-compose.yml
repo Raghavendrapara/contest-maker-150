@@ -67,7 +67,7 @@ services:
 
   # Jaeger for distributed tracing
   jaeger:
-    image: jaegertracing/all-in-one:1.64
+    image: jaegertracing/all-in-one:latest
     container_name: contest-maker-jaeger
     environment:
       COLLECTOR_ZIPKIN_HOST_PORT: :9411
@@ -80,7 +80,7 @@ services:
 
   # Prometheus for metrics
   prometheus:
-    image: prom/prometheus:v2.58.0
+    image: prom/prometheus:v3.2.1
     container_name: contest-maker-prometheus
     volumes:
       - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro

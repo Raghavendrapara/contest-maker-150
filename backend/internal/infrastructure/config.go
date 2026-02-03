@@ -8,9 +8,9 @@ import (
 
 // Config holds all application configuration
 type Config struct {
-	Server   ServerConfig
-	Database DatabaseConfig
-	JWT      JWTConfig
+	Server    ServerConfig
+	Database  DatabaseConfig
+	JWT       JWTConfig
 	Telemetry TelemetryConfig
 }
 
@@ -64,15 +64,15 @@ func LoadConfig() *Config {
 			Environment:  getEnv("ENVIRONMENT", "development"),
 		},
 		Database: DatabaseConfig{
-			Host:            getEnv("DB_HOST", "localhost"),
-			Port:            getEnvInt("DB_PORT", 5432),
-			User:            getEnv("DB_USER", "postgres"),
-			Password:        getEnv("DB_PASSWORD", "postgres"),
-			DBName:          getEnv("DB_NAME", "contest_maker"),
-			SSLMode:         getEnv("DB_SSL_MODE", "disable"),
-			MaxOpenConns:    getEnvInt("DB_MAX_OPEN_CONNS", 25),
-			MaxIdleConns:    getEnvInt("DB_MAX_IDLE_CONNS", 5),
-			ConnMaxLifetime: time.Duration(getEnvInt("DB_CONN_MAX_LIFETIME", 300)) * time.Second,
+			Host:            getEnv("DATABASE_HOST", "localhost"),
+			Port:            getEnvInt("DATABASE_PORT", 5432),
+			User:            getEnv("DATABASE_USER", "postgres"),
+			Password:        getEnv("DATABASE_PASSWORD", "postgres"),
+			DBName:          getEnv("DATABASE_NAME", "contest_maker"),
+			SSLMode:         getEnv("DATABASE_SSLMODE", "disable"),
+			MaxOpenConns:    getEnvInt("DATABASE_MAX_OPEN_CONNS", 25),
+			MaxIdleConns:    getEnvInt("DATABASE_MAX_IDLE_CONNS", 5),
+			ConnMaxLifetime: time.Duration(getEnvInt("DATABASE_CONN_MAX_LIFETIME", 300)) * time.Second,
 		},
 		JWT: JWTConfig{
 			SecretKey:          getEnv("JWT_SECRET", "your-super-secret-key-change-in-production"),
